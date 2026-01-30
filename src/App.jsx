@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from './Components/Navbar'
 import Content from './Components/Content'
 import Card from './Components/Card'
@@ -6,6 +6,13 @@ import Button from './Components/Button'
 
 const App = () => {
   const users=["uschee","asknte","ebehatr","prutachi"]
+  const [gender, setGender] = useState("male")
+  function genderChanged(){
+    if(gender=="male")
+    setGender("female")
+  else
+    setGender("male")
+  }
   return (
     <div className='h-screen flex flex-col'>
       {/* <Navbar /> */}
@@ -16,7 +23,7 @@ const App = () => {
       {Card("zaatee")}
       {Card("linkan")}
       {Card()} */}
-      <Card user="Sarthak" age={29}/>
+      {/* <Card user="Sarthak" age={29}/>
       <Card user="kumar" age={89}/>
       <Card user="sanket" age={49}/>
       <Card user="harsh" age={19}/>
@@ -25,7 +32,11 @@ const App = () => {
       <Button content="Buy Courses Now"/> 
       {users.map(function(elem){
         return<Button text={elem}/> //using array how to output on screens
-      })}
+      })} */}
+
+      <h1 className='text-xl m-5 px-4 py-2'>Your gender is {gender}</h1>
+      <button onClick={genderChanged} className='m-5 px-4 py-1.5 w-fit bg-green-600 text-white text-2xl rounded-full active:scale-95'>click to change</button>
+
 
     </div>
   )
